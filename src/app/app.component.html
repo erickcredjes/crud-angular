@@ -1,7 +1,11 @@
 <mat-toolbar color="primary">
-  <span>My Application</span>
+  <div class="container">
+    <span>CRUD Angular + Spring</span>
 
-  <div>
-    <a mat-button routerLink=".">Courses</a>
+    <a mat-button routerLink="/courses">Courses</a>
   </div>
 </mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
