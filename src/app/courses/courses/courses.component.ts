@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CoursesComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'id', 'name', 'Categoria' ]
+  displayedColumns: string[] = [ 'id', 'name', 'category', 'actions' ]
   courses$!: Observable<Course[]>
 
   constructor(
@@ -36,7 +36,6 @@ export class CoursesComponent implements OnInit {
             '',
             'Por favor entre em contato com nosso suporte!'
           )
-          console.log(error)
           return of([])
         })
       )

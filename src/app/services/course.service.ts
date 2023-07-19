@@ -9,7 +9,8 @@ import { Course } from '../courses/courses/model/course';
 })
 export class CourseService {
 
-  private readonly urlBase = '../../assets/CoursesDb.json'
+  // private readonly urlBase = '../../assets/CoursesDb.json'
+  private readonly urlBase = 'api/courses'
 
   constructor(
     private http: HttpClient
