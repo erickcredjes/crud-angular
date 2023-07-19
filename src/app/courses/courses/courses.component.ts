@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Course } from './models/course';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { Component, OnInit } from '@angular/core';
+
+import { Course } from './model/course';
 
 @Component({
   selector: 'app-courses',
@@ -10,17 +9,16 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CoursesComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'type']
+  displayedColumns: string[] = [ 'id', 'name', 'Categoria' ]
   courses: Course[] = [
-    { id: 1, name: 'Java API', type: 'Backend' },
-    { id: 2, name: 'Banco De Dados', type: 'Backend' },
-    { id: 3, name: 'Angular', type: 'Frontend' },
+    { id: 1, name: 'Java API', category: 'Backend' },
+    { id: 2, name: 'Banco De Dados', category: 'Backend' },
+    { id: 3, name: 'Angular', category: 'Frontend' },
   ]
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 
 }
