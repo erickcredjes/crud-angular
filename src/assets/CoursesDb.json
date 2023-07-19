@@ -1,5 +1,5 @@
 [
-  { "id": 1, "name": "Java API", "category": "Backend" },
-  { "id": 2, "name": "Banco De Dados", "category": "Backend" },
-  { "id": 3, "name": "Angular", "category": "Frontend" }
+  { "id": 1, "name": "Java API", "category": "back-end" },
+  { "id": 2, "name": "Banco De Dados", "category": "data-base" },
+  { "id": 3, "name": "Angular", "category": "front-end" }
 ]

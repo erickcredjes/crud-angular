@@ -19,7 +19,7 @@ export class CourseService {
       return this.http.get<Course[]>(this.urlBase)
         .pipe(
           first(),
-          delay(1000),
+          delay(0),
           tap(courses => console.log(courses))
         )
     }
