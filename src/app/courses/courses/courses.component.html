@@ -4,7 +4,7 @@
     <span>Cursos disponíveis</span>
   </mat-toolbar>
 
-  <div>
+  <div *ngIf="courses$ | async as courses; else loading">
     <table mat-table [dataSource]="courses" class="mat-elevation-z8">
 
       <!-- Identity Column -->
@@ -37,6 +37,11 @@
     </table>
   </div>
 
-  <mat-spinner></mat-spinner>
+  <ng-template #loading>
+    <div class="loading-spinner">
+      <mat-spinner color="accent"></mat-spinner>
+    </div>
+  </ng-template>
+
 
 </section>

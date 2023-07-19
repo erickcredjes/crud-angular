@@ -1,8 +1,10 @@
+import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
 import { Component, OnInit } from '@angular/core';
 
 import { Course } from './model/course';
 import { CourseService } from 'src/app/services/course.service';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-courses',
@@ -12,10 +14,11 @@ import { Observable } from 'rxjs';
 export class CoursesComponent implements OnInit {
 
   displayedColumns: string[] = [ 'id', 'name', 'Categoria' ]
-  courses!: Observable<Course[]>
+  courses$!: Observable<Course[]>
 
   constructor(
-    private courseSevice: CourseService
+    private courseSevice: CourseService,
+    private dialogErro: MatDialog
   ) {
     this.loadCourses()
   }
@@ -24,20 +27,30 @@ export class CoursesComponent implements OnInit {
   }
 
   loadCourses() {
-    this.courses = this.courseSevice.getCourses()
+    this.courses$ = this.courseSevice.getCourses()
+      .pipe(
+        catchError(error => {
+          this.onError(
+            error.status,
+            error.statusText,
+            '',
+            'Por favor entre em contato com nosso suporte!'
+          )
+          console.log(error)
+          return of([])
+        })
+      )
+  }
 
-
-    // this.courseSevice.getCourses().subscribe(
-    //   (res) => {
-    //     this.courses = res !== null ? res : []
-    //   },
-    //   (resError) => {
-    //     console.log(resError)
-    //     console.log(resError.status)
-    //     console.log(resError.statusText)
-    //     console.log(resError.error)
-    //   }
-    // )
+  onError(status: number, statusText: string, error: any, description: string) {
+    this.dialogErro.open(ErrorDialogComponent, {
+      data: {
+        status,
+        statusText,
+        error,
+        description
+      }
+    })
   }
 
 }
