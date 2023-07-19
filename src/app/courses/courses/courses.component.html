@@ -1,26 +1,42 @@
-<mat-spinner></mat-spinner>
-<table mat-table [dataSource]="courses" class="mat-elevation-z8">
+<section>
 
+  <mat-toolbar color="primary">
+    <span>Cursos disponíveis</span>
+  </mat-toolbar>
 
-  <!-- Identity Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id. </th>
-    <td mat-cell *matCellDef="let course"> {{ course.id }} </td>
-  </ng-container>
+  <div>
+    <table mat-table [dataSource]="courses" class="mat-elevation-z8">
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Curso </th>
-    <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
-  </ng-container>
+      <!-- Identity Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let course"> {{ course.id }} </td>
+      </ng-container>
 
-  <!-- Category Column -->
-  <ng-container matColumnDef="Categoria">
-    <th mat-header-cell *matHeaderCellDef> Categoria </th>
-    <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Curso </th>
+        <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- Category Column -->
+      <ng-container matColumnDef="Categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
+      </ng-container>
 
-</table>
+      <!-- Actions Column -->
+      <!-- <ng-container matColumnDef="Categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
+      </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+
+  <mat-spinner></mat-spinner>
+
+</section>

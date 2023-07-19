@@ -6,6 +6,8 @@ import { MatTableModule } from '@angular/material/table';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppMaterialModule } from '../shared/app-material/app-material.module';
 
 
 @NgModule({
@@ -15,9 +17,7 @@ import { CoursesComponent } from './courses/courses.component';
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule
+    AppMaterialModule
   ]
 })
 export class CoursesModule { }
